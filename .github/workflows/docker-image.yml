@@ -38,6 +38,7 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
+        export DOCKER_BUILDKIT=0
         docker build -t jisoc/docker-graphql:$NEW_VERSION .
         docker build -t jisoc/docker-graphql:latest .
     
